@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Card 1",
+        "description": "This is the first card.",
+        "image": "url_to_image_1",
+        "date": "2023-01-01"
+    },
+    {
+        "id": 2,
+        "title": "Card 2",
+        "description": "This is the second card.",
+        "image": "url_to_image_2",
+        "date": "2023-01-02"
+    },
+    {
+        "id": 3,
+        "title": "Card 3",
+        "description": "This is the third card.",
+        "image": "url_to_image_3",
+        "date": "2023-01-03"
+    }
+]
