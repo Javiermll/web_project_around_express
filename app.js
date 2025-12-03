@@ -35,7 +35,7 @@ app.use("/users", usersRoutes);
 // });
 
 app.use((req, res) => {
-  res.status(404).json({ message: "Recurso solicitado no encontrado" });
+  res.status(404).json({ message: "Recurso solicitado no se pudo encontrar" });
 });
 
 // Middleware global de manejo de errores
@@ -47,12 +47,16 @@ app.use((err, req, res, next) => {
   }
 
   // Prioriza statusCode si el error personalizado lo trae
-  const status = err.statusCode
-    || (err.name === "ValidationError" || err.name === "CastError" ? 400
-    : err.name === "DocumentNotFoundError" ? 404
-    : 500);
+  const status =
+    err.statusCode ||
+    (err.name === "ValidationError" || err.name === "CastError"
+      ? 400
+      : err.name === "DocumentNotFoundError"
+      ? 404
+      : 500);
 
-  const message = status === 500 ? "Error interno del servidor" : (err.message || "Error");
+  const message =
+    status === 500 ? "Error interno del servidor" : err.message || "Error";
 
   res.status(status).json({ message });
 });
